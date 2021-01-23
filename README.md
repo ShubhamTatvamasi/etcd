@@ -7,7 +7,26 @@ helm repo update
 kubectl create namespace etcd
 
 helm install etcd bitnami/etcd \
-  -n etcd
+  -n etcd \
+  --set persistence.storageClass=manual \
+  --set persistence.size=1Gi
 ```
 
+Setup volume
+```bash
+kubectl apply -f - << EOF
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: etcd
+spec:
+  storageClassName: manual
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: "/opt/etcd"
+EOF
+```
 
