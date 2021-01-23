@@ -12,6 +12,11 @@ helm install etcd bitnami/etcd \
   --set persistence.size=1Gi
 ```
 
+Run the follwoing command on the node for giving volume permission to the pod:
+```bash
+chown 1001:1001 /opt/etcd
+```
+
 Setup volume
 ```bash
 kubectl apply -f - << EOF
