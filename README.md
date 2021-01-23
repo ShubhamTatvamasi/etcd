@@ -9,7 +9,8 @@ kubectl create namespace etcd
 helm install etcd bitnami/etcd \
   -n etcd \
   --set persistence.storageClass=manual \
-  --set persistence.size=1Gi
+  --set persistence.size=1Gi \
+  --set auth.rbac.rootPassword=password
 ```
 
 Run the follwoing command on the node for giving volume permission to the pod:
