@@ -7,7 +7,7 @@ helm repo update
 kubectl create namespace etcd
 
 helm install etcd bitnami/etcd \
-  -n etcd \
+  --namespace etcd \
   --set persistence.storageClass=manual \
   --set persistence.size=5Gi \
   --set auth.rbac.enabled=false
