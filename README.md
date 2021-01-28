@@ -9,7 +9,7 @@ kubectl create namespace etcd
 helm install etcd bitnami/etcd \
   -n etcd \
   --set persistence.storageClass=manual \
-  --set persistence.size=1Gi \
+  --set persistence.size=5Gi \
   --set auth.rbac.enabled=false
 ```
 
@@ -30,7 +30,7 @@ spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 1Gi
+    storage: 5Gi
   hostPath:
     path: "/opt/etcd"
 EOF
