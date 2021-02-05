@@ -15,6 +15,7 @@ helm install etcd bitnami/etcd \
 
 Run the follwoing command on the node for giving volume permission to the pod:
 ```bash
+mkdir -p /opt/etcd
 chown 1001:1001 /opt/etcd
 ```
 
